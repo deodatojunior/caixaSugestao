@@ -1,0 +1,20 @@
+{% extends 'appCaixaSugestao/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+ <button type="button" class="btn btn-primary btn-lg btn-block" style="width: 730px; height: 250px;">
+            <a href="{% url 'sugestao_novo' %}" style="color: white;">
+                <h1>Dar Sugestão</h1>
+            </a>
+          </button>
+
+<button type="button" class="btn btn-warning btn-lg btn-block">
+            <a href="{% url 'login' %}" style="color: white;">
+              Acesso para gerenciadores
+            </a>
+          </button>
+
+
+{% endblock %}

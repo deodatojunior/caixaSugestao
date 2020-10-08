@@ -1,0 +1,22 @@
+{% extends 'appCaixaSugestao/base.html' %}
+{% block title %}
+Listagem de Sugestões
+{% endblock title %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item">Título: {{sugestao.titulo}}</li>
+            <li class="list-group-item">Sugestão: {{sugestao.texto}}</li>
+            <li class="list-group-item">Área da empresa pra qual é a sugestão: {{sugestao.areaDaEmpresa}}</li>
+        </ul>
+    </div>
+</div>
+<br>
+<a href="{% url 'sugestao_listar' %}">
+<button type="submit" class="btn btn-success">
+    Voltar à lista de sugestões
+</button>
+</a>
+
+{% endblock content %}

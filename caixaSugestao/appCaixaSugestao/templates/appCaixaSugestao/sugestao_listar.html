@@ -1,0 +1,57 @@
+{% extends 'appCaixaSugestao/base.html' %}
+
+{% block title %}
+Listagem de sugestões
+{% endblock title %}
+
+{% block content %}
+
+<form method="get">
+    <div class="col-lg-12">
+    <div class="input-group">
+      <input type="text" class="form-control" name="busca" placeholder="Buscar sugestão">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Pesquisar</button>
+      </span>
+    </div>
+    </div>
+</form>
+<div class="col-lg-12">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+        <th>Área da empresa para qual vai a sugestão</th>
+        <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for sugestao in lista %}
+    <tr>
+      <td>{{ sugestao.titulo }}</td>
+        <td>{{ sugestao.area_Da_Empresa }}</td>
+      <td>
+          <a href="{% url 'sugestao_ver' pk=sugestao.pk %}">
+            <span class="glyphicon glyphicon-pencil">
+                Visualizar
+            </span>
+        </a>
+        <a href="">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <a href="">
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'usuario_listar' %}">
+<button type="submit" class="btn btn-success">
+    Voltar ao painel principal
+</button>
+</a>
+</div>
+{% endblock content %}
