@@ -26,10 +26,11 @@ def sugestao_novo(request):
     form = SugestaoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        return redirect('obrigado')
     return render(request, 'appCaixaSugestao/sugestao_form.html', {'form': form})
 
-
+def obrigado(request):
+    return render(request, 'appCaixaSugestao/obrigado.html')
 
 @login_required
 def sugestao_listar(request):
