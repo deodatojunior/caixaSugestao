@@ -4,17 +4,17 @@
 
 
 {% block content %}
+<a href="{% url 'sugestao_novo' %}" style="color: white;">
  <button type="button" class="btn btn-primary btn-lg btn-block" style="width: 730px; height: 250px;">
-            <a href="{% url 'sugestao_novo' %}" style="color: white;">
                 <h1>Dar Sugestão</h1>
-            </a>
           </button>
-
+</a>
+<br>
+ <a href="{% url 'login' %}" style="color: white;">
 <button type="button" class="btn btn-warning btn-lg btn-block">
-            <a href="{% url 'login' %}" style="color: white;">
-              Acesso para administradores
-            </a>
+              <h3 style="color: white;">Acesso para administradores</h3>
           </button>
+ </a>
 
 
 {% endblock %}

@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'caixaSugestao.wsgi.application'
 DATABASES = {
 'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'bancoDeDados',
+        'NAME': 'banco',
     }
 }
 

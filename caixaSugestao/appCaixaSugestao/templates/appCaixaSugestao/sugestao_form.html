@@ -6,7 +6,7 @@
 {% block content %}
   <form method="post" novalidate>
     {% csrf_token %}
-    {{ form.titulo|as_crispy_field }}
+    {{ form.nome|as_crispy_field }}
     {{ form.texto|as_crispy_field }}
 
      {{ form.area_Da_Empresa|as_crispy_field }}

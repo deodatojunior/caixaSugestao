@@ -13,7 +13,7 @@ from django.shortcuts import render, redirect
 class SugestaoForm(ModelForm):
     class Meta:
         model = Sugestao
-        fields = ('titulo', 'texto', 'area_Da_Empresa')
+        fields = ('nome', 'texto', 'area_Da_Empresa')
 
 
 

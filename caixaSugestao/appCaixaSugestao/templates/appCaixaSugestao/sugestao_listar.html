@@ -20,7 +20,7 @@ Listagem de sugestões
 <table class="table">
   <thead>
     <tr>
-      <th>Título</th>
+      <th>Nome do sugestionador</th>
         <th>Área da empresa para qual vai a sugestão</th>
         <th>Ações</th>
     </tr>
@@ -28,7 +28,7 @@ Listagem de sugestões
   <tbody>
   {% for sugestao in lista %}
     <tr>
-      <td>{{ sugestao.titulo }}</td>
+      <td>{{ sugestao.nome }}</td>
         <td>{{ sugestao.area_Da_Empresa }}</td>
       <td>
           <a href="{% url 'sugestao_ver' pk=sugestao.pk %}">
