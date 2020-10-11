@@ -1,0 +1,17 @@
+
+{% extends 'appCaixaSugestao/base.html' %}
+
+{% block title %}
+Remoção de Sugestões
+{% endblock title %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <h4>Tem certeza que deseja excluir a sugestão desta pessoa? "{{ sugestao.nome }}"?</h4>
+    <br/>
+<button type="submit" class="btn btn-primary">
+    Remover
+</button>
+</form>
+
+{% endblock content %}
