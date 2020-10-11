@@ -15,10 +15,6 @@ class SugestaoForm(ModelForm):
         model = Sugestao
         fields = ('nome', 'texto', 'area_Da_Empresa')
 
-
-
-
-
 def index(request):
     return render(request, 'appCaixaSugestao/index.html')
 

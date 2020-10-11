@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -17,7 +17,8 @@ urlpatterns = [
 
     path('usuario_registrar/', views.usuario_registrar, name='usuario_registrar'),
     path('usuario_listar/', views.usuario_listar, name='usuario_listar'),
-    path('usuario_remover/<int:pk>', views.usuario_remover, name='usuario_remover')
+    path('usuario_remover/<int:pk>', views.usuario_remover, name='usuario_remover'),
+
 
 
 ]
