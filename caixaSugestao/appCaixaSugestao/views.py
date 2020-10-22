@@ -71,6 +71,7 @@ def sugestao_ver_resposta(request, pk):
     resposta = get_object_or_404(mensagemArea, pk=pk)
     return render(request, 'appCaixaSugestao/sugestao_ver_resposta.html', {'resposta': resposta})
 
+
 @login_required
 def sugestao_remover(request, pk):
     sugestao = Sugestao.objects.get(pk=pk)
