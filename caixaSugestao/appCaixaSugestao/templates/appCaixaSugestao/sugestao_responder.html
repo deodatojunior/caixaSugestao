@@ -1,0 +1,15 @@
+{% extends 'appCaixaSugestao/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.responsavel|as_crispy_field }}
+    {{ form.resposta|as_crispy_field }}
+      {{ form.sugestionador|as_crispy_field }}
+
+   <button type="submit" class="btn btn-success">Responder sugestão</button>
+  </form>
+{% endblock %}

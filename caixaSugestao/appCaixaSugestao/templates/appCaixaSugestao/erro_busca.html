@@ -1,0 +1,16 @@
+{% extends 'appCaixaSugestao/base.html' %}
+
+
+
+
+{% block content %}
+<h1>Erro ao tentar encontrar resposta a sua sugestão, tente novamente ou entre em contato com o adminsitrador!</h1>
+<br>
+<button type="button" class="btn btn-success btn-lg btn-block">
+            <a href="{% url 'index' %}" style="color: white;">
+              Retornar a página principal
+            </a>
+          </button>
+
+
+{% endblock %}

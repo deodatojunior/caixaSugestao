@@ -15,6 +15,11 @@ class SugestaoForm(ModelForm):
         model = Sugestao
         fields = ('nome', 'texto', 'area_Da_Empresa')
 
+class SugestaoResponderForm(ModelForm):
+    class Meta:
+        model = mensagemArea
+        fields = ('responsavel', 'resposta', 'sugestionador')
+
 def index(request):
     return render(request, 'appCaixaSugestao/index.html')
 
@@ -27,6 +32,9 @@ def sugestao_novo(request):
 
 def obrigado(request):
     return render(request, 'appCaixaSugestao/obrigado.html')
+
+def erro_busca(request):
+    return render(request, 'appCaixaSugestao/erro_busca.html')
 
 @login_required
 def sugestao_listar(request):
@@ -41,6 +49,27 @@ def sugestao_listar(request):
 def sugestao_ver(request, pk):
     sugestao = get_object_or_404(Sugestao, pk=pk)
     return render(request, 'appCaixaSugestao/sugestao_ver.html', {'sugestao': sugestao})
+
+@login_required
+def sugestao_responder(request):
+    form = SugestaoResponderForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('obrigado_area')
+    return render(request, 'appCaixaSugestao/sugestao_responder.html', {'form': form})
+
+def obrigado_area(request):
+    return render(request, 'appCaixaSugestao/obrigado_area.html')
+
+def sugestao_consultar_resposta(request):
+    query = request.GET.get("busca")
+    resposta = mensagemArea.objects.filter(sugestionador__iexact=query)
+    respostas = {'lista': resposta}
+    return render(request, 'appCaixaSugestao/sugestao_consultar_resposta.html', respostas)
+
+def sugestao_ver_resposta(request, pk):
+    resposta = get_object_or_404(mensagemArea, pk=pk)
+    return render(request, 'appCaixaSugestao/sugestao_ver_resposta.html', {'resposta': resposta})
 
 @login_required
 def sugestao_remover(request, pk):
@@ -58,6 +87,7 @@ def logar(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
+
             return HttpResponseRedirect(next)
         else:
             messages.error(request, 'Usuário ou senha incorretos.')
@@ -89,6 +119,7 @@ def usuario_registrar(request):
                 user = User.objects.create_user(username, email, password)
                 user.is_staff = True
                 user.save()
+
             else:
                 user = User.objects.create_user(username, email, password)
 

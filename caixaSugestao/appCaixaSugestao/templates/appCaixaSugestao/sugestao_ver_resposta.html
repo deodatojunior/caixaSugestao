@@ -1,0 +1,22 @@
+{% extends 'appCaixaSugestao/base.html' %}
+{% block title %}
+Listagem de Respostas
+{% endblock title %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item">Nome do responsável pela resposta: {{resposta.responsavel}}</li>
+            <li class="list-group-item">Resposta à sugestão: {{resposta.resposta}}</li>
+            <li class="list-group-item">Cliente que deu a sugestão: {{resposta.sugestionador}}</li>
+        </ul>
+    </div>
+</div>
+<br>
+<a href="{% url 'index' %}">
+<button type="submit" class="btn btn-success">
+    Voltar à página inicial
+</button>
+</a>
+
+{% endblock content %}

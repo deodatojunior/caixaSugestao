@@ -8,6 +8,10 @@ class Sugestao(models.Model):
     texto = models.TextField()
     area_Da_Empresa = models.CharField(max_length=30)
 
+class mensagemArea(models.Model):
+    responsavel = models.CharField(max_length=100)
+    resposta = models.TextField()
+    sugestionador = models.CharField(max_length=100)
 
 
 
